@@ -232,7 +232,6 @@ Array.from(portfolio.children).forEach((item, index) => {
     </section>
     `;
 
-<<<<<<< HEAD
       const ulList = document.querySelector('.popup-block .tags');
 
       Object.keys(data[index].technologies).forEach((e) => {
@@ -306,4 +305,3 @@ function getUserDetails(localObj) {
 }
 
 getUserDetails(stored);
-     
