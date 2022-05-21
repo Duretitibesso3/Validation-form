@@ -248,6 +248,7 @@ Array.from(portfolio.children).forEach((item, index) => {
   );
 });
 
+// form validation
 const form = document.querySelector('.form');
 const emailInput = form.elements.email;
 
@@ -258,4 +259,15 @@ function showMessage(input, message, type) {
   msg.innerText = message;
   input.className = type ? 'success' : 'error';
   return type;
+}
+
+function showError(input, message) {
+  return showMessage(input, message, false);
+}
+
+function validateEmail(input, invalidLowercase) {
+  if (input.value === input.value.toLowerCase()) {
+    return true;
+  }
+  return showError(input, invalidLowercase);
 }
