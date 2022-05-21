@@ -112,6 +112,7 @@ const textPortfolio = document.querySelector('.nav-text-1');
 const about = document.querySelector('.nav-text-2');
 const contact = document.querySelector('.nav-text-3');
 
+// hamburger menu
 hamburger.addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -149,6 +150,8 @@ contact.addEventListener('click', (e) => {
   hamburger.classList.remove('hide');
 });
 
+// popup
+// dynamic html code from javascript
 const portfolio = document.querySelector('#portfolio');
 const modal = document.querySelector('#myModal');
 
@@ -186,6 +189,7 @@ Array.from(portfolio.children).forEach((child, index) => {
   </section>`;
 });
 
+// modals
 Array.from(portfolio.children).forEach((item, index) => {
   item.firstElementChild.lastElementChild.lastElementChild.firstElementChild.addEventListener(
     'click',
@@ -228,6 +232,7 @@ Array.from(portfolio.children).forEach((item, index) => {
     </section>
     `;
 
+<<<<<<< HEAD
       const ulList = document.querySelector('.popup-block .tags');
 
       Object.keys(data[index].technologies).forEach((e) => {
@@ -271,3 +276,34 @@ function validateEmail(input, invalidLowercase) {
   }
   return showError(input, invalidLowercase);
 }
+
+// local storage
+function saveUserDetails() {
+  const formData = new FormData(form);
+  const fullname = formData.get('fullname');
+  const email = formData.get('email');
+  const feedback = formData.get('feedback');
+  const myFormData = { name: fullname, email, feedback };
+  localStorage.setItem('myFormData', JSON.stringify(myFormData));
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const emailValid = validateEmail(emailInput, INPUT_LOWERCASE);
+  if (emailValid) {
+    form.submit();
+    saveUserDetails();
+  }
+});
+
+const stored = localStorage.getItem('myFormData');
+
+function getUserDetails(localObj) {
+  const userDetails = JSON.parse(localObj);
+  form.fullname.value = userDetails.name;
+  form.email.value = userDetails.email;
+  form.feedback.value = userDetails.feedback;
+}
+
+getUserDetails(stored);
+     
