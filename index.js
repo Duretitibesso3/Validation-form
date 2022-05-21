@@ -112,7 +112,6 @@ const textPortfolio = document.querySelector('.nav-text-1');
 const about = document.querySelector('.nav-text-2');
 const contact = document.querySelector('.nav-text-3');
 
-// hamburger menu
 hamburger.addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -150,8 +149,6 @@ contact.addEventListener('click', (e) => {
   hamburger.classList.remove('hide');
 });
 
-// popup
-// dynamic html code from javascript
 const portfolio = document.querySelector('#portfolio');
 const modal = document.querySelector('#myModal');
 
@@ -189,7 +186,6 @@ Array.from(portfolio.children).forEach((child, index) => {
   </section>`;
 });
 
-// modals
 Array.from(portfolio.children).forEach((item, index) => {
   item.firstElementChild.lastElementChild.lastElementChild.firstElementChild.addEventListener(
     'click',
@@ -252,7 +248,6 @@ Array.from(portfolio.children).forEach((item, index) => {
   );
 });
 
-// form validation
 const form = document.querySelector('.form');
 const emailInput = form.elements.email;
 
